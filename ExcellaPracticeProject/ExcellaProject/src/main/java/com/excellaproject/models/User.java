@@ -29,7 +29,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private Integer user_level;
+	private Integer user_level = 0;
 	
 	private String icon;
 	
