@@ -1,6 +1,7 @@
 /*Thanks Simon Bull for certain parts of the CSS!*/
 
 /* <------- Navigation Bar Styling ------->*/
+
 .bgimg{
   position: fixed;
   filter: blur(8px);
@@ -53,7 +54,7 @@
 }
 
 .nav_bar ul li a{
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 18px;
   text-align: center;
   transition: .5s;

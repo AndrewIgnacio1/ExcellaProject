@@ -1,0 +1,40 @@
+package com.excellaproject.services;
+
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.excellaproject.models.User;
+import com.excellaproject.repositories.UserRepository;
+
+@Service
+public class UserService {
+
+	private UserRepository userRepository;
+
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	public User createUser(Map<String, String> body) {
+		User user = new User(body);
+		this.userRepository.save(user);
+		return user;
+	}
+	
+	public User findById(Long id) {
+		Optional<User> optionalUser = userRepository.findById(id);
+		if(optionalUser.isPresent()) {
+			return optionalUser.get();
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public User findByEmail(String email) {
+		return this.userRepository.findByEmail(email);
+	}
+	
+}
