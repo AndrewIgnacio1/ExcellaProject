@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-//<<---------------User Model--------------->>
+//<<---------------Form A Model--------------->>
 
 @Entity
 @Table(name="forms_a")

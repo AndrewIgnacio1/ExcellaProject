@@ -44,10 +44,10 @@
         <div class="userdashcol">
             <h1>Incomplete</h1>
             <ul>
-                <li><a href="/new">Form A</a></li> 
-                <li><a href="#">Form B</a></li>
-                <li><a href="#">Form C</a></li>
-                <li><a href="#">Form D</a></li>
+                <li><a href="/new_a">Form A</a></li> 
+                <li><a href="/new_b">Form B</a></li>
+                <li><a href="/new_c">Form C</a></li>
+                <li><a href="/new_d">Form D</a></li>
             </ul>                      
         </div>
 

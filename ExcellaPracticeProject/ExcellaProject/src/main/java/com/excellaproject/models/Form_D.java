@@ -15,11 +15,11 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-//<<---------------Form C Model--------------->>
+//<<---------------Form D Model--------------->>
 
 @Entity
-@Table(name="forms_c")
-public class Form_C {
+@Table(name="forms_d")
+public class Form_D {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -59,11 +59,11 @@ public class Form_C {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	public Form_C() {
+	public Form_D() {
 		
 	}
 
-//  <<---------------One To One Relationship--------------->>
+//<<---------------One To One Relationship--------------->>
 	
 	@OneToOne (fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
@@ -194,12 +194,12 @@ public class Form_C {
 //	<<---------------Creating/Updating--------------->>
 
 	@PrePersist
-    protected void onCreate(){
-        this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }	
+  protected void onCreate(){
+      this.createdAt = new Date();
+  }
+  @PreUpdate
+  protected void onUpdate(){
+      this.updatedAt = new Date();
+  }	
 	
 }

@@ -21,8 +21,8 @@ private final Form_ARepository form_ARepository;
 		return form_ARepository.findAll();
 	}
 	
-	public List<Form_A> formIncomplete(Long id){
-		return form_ARepository.findIncompleteForms(id);
+	public List<Form_A> formRejected(Long id){
+		return form_ARepository.findRejectedForms(id);
 	}
 	
 	public List<Form_A> formPending(Long id){
