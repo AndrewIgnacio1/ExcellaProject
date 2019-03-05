@@ -47,6 +47,16 @@ public class Form_DService {
 		}
 	}
 	
+	public Form_D findUser(long id) {
+		Optional<Form_D> optionalForm_D = form_DRepository.findByUser_id(id);
+		if(optionalForm_D.isPresent()) {
+			return optionalForm_D.get();
+		}
+		else {
+			return null;
+		}
+	}
+	
 	public Form_D updateForm(long id, int form_level) {
 		Optional<Form_D> optionalForm_D = form_DRepository.findById(id); 
         if(optionalForm_D.isPresent()) {

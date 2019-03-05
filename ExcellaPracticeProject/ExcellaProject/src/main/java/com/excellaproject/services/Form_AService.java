@@ -47,6 +47,16 @@ private final Form_ARepository form_ARepository;
 		}
 	}
 	
+	public Form_A findUser(long id) {
+		Optional<Form_A> optionalForm_A = form_ARepository.findByUser_id(id);
+		if(optionalForm_A.isPresent()) {
+			return optionalForm_A.get();
+		}
+		else {
+			return null;
+		}
+	}
+	
 	public Form_A updateForm(long id, int form_level) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id); 
         if(optionalForm_A.isPresent()) {
