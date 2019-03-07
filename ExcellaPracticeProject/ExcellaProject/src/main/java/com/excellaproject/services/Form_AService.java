@@ -21,8 +21,8 @@ private final Form_ARepository form_ARepository;
 		return form_ARepository.findAll();
 	}
 	
-	public List<Form_A> formIncomplete(Long id){
-		return form_ARepository.findIncompleteForms(id);
+	public List<Form_A> formRejected(Long id){
+		return form_ARepository.findRejectedForms(id);
 	}
 	
 	public List<Form_A> formPending(Long id){
@@ -39,6 +39,16 @@ private final Form_ARepository form_ARepository;
 	
 	public Form_A findForm(long id) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id);
+		if(optionalForm_A.isPresent()) {
+			return optionalForm_A.get();
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public Form_A findUser(long id) {
+		Optional<Form_A> optionalForm_A = form_ARepository.findByUser_id(id);
 		if(optionalForm_A.isPresent()) {
 			return optionalForm_A.get();
 		}

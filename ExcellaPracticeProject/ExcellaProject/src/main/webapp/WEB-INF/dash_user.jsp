@@ -27,7 +27,7 @@
         <div class="nav_bar">
 
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Home</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
 
@@ -41,24 +41,40 @@
         </div>
 
 
-        <div class="userdashcol">
+        <div class="userdashcol" style="vertical-align: top">
             <h1>Incomplete</h1>
             <ul>
-                <li><a href="/new">Form A</a></li> 
-                <li><a href="#">Form B</a></li>
-                <li><a href="#">Form C</a></li>
-                <li><a href="#">Form D</a></li>
+            <c:if test="${form_a == null}">
+                <li><a href="/new_a">Form A</a></li> 
+            </c:if>
+            <c:if test="${form_b == null}">
+                <li><a href="/new_b">Form B</a></li> 
+            </c:if>
+            <c:if test="${form_c == null}">
+                <li><a href="/new_c">Form C</a></li> 
+            </c:if>
+            <c:if test="${form_d == null}">
+                <li><a href="/new_d">Form D</a></li> 
+            </c:if>
             </ul>                      
         </div>
 
-        <div class="userdashcol">
+        <div class="userdashcol" style="vertical-align: top">
             <h1>Pending</h1>
             <ul>
-                <li><a href="#">Form E</a></li> 
-                <li><a href="#">Form F</a></li>
-                <li><a href="#">Form G</a></li>
-                <li><a href="#">Form H</a></li>
-            </ul>                             
+            <c:if test="${form_a.form_level == 1}">
+                <li>Form A</li> 
+            </c:if>
+            <c:if test="${form_b.form_level == 1}">
+                <li>Form B</li> 
+            </c:if>
+            <c:if test="${form_c.form_level == 1}">
+                <li>Form C</li> 
+            </c:if>
+            <c:if test="${form_d.form_level == 1}">
+                <li>Form D</li> 
+            </c:if>
+            </ul>                         
         </div>
 
         <div class="userdashcol">

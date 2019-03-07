@@ -29,7 +29,7 @@ public class Forms_A {
 		this.userService = userService;
 	}
 	
-	@RequestMapping("/new")
+	@RequestMapping("/new_a")
     public String newForm(HttpSession session, Model model, @ModelAttribute("form_A") Form_A form_A) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);

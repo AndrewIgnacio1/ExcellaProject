@@ -86,8 +86,7 @@
                 <div class="form-group col-md-4">
                   <form:label path="state" for="inputState">State, Commonwealth, or Territory</form:label>
                   <form:select path="state" id="inputState" name="state" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>AL</option>
+                    <option selected>AL</option>
                     <option>AK</option>
                     <option>AZ</option>
                     <option>CA</option>
