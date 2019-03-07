@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.excellaproject.models.User;
 import com.excellaproject.models.Form_A;
 import com.excellaproject.models.Form_B;
 import com.excellaproject.models.Form_C;
 import com.excellaproject.models.Form_D;
+import com.excellaproject.models.User;
 import com.excellaproject.services.Form_AService;
 import com.excellaproject.services.Form_BService;
 import com.excellaproject.services.Form_CService;
@@ -69,6 +69,10 @@ public class Users {
 		if ((boolean) response.get("valid")) {
 			User user = (User) response.get("user");
 			session.setAttribute("user", user);
+			System.out.println(user);
+			if (user.getUser_level() == 1) {
+				return "redirect:/dashboard_admin";
+			}
 			return "redirect:/dashboard";
 		}
 		else {
@@ -83,9 +87,23 @@ public class Users {
 		
 		if ((boolean) response.get("valid")) {
 			User user = this.userService.createUser(body);
+			System.out.println(user);
 			session.setAttribute("user", user);
 			System.out.println("success in registration");
-			return "redirect:/dashboard";
+
+			if (userService.findAllUsers().size() == 1) {
+				user.setUser_level(1);
+				userService.updateUser(user);
+				System.out.println("admin here");
+				return "redirect:/dashboard_admin";
+			}
+			
+			else {
+				user.setUser_level(9);
+				userService.updateUser(user);
+				System.out.println("regular user here");
+				return "redirect:/dashboard";
+			}
 		}
 		else {
 			flash.addFlashAttribute("errors", response);
@@ -107,6 +125,15 @@ public class Users {
 		model.addAttribute("form_c", form_c);
 		model.addAttribute("form_d", form_d);
 		return "dash_user";
+	}
+
+	@RequestMapping("/dashboard_admin")
+	public String dash_admin_page(HttpSession session, Model model) {
+		List<User> users = userService.findAllUsers();
+		model.addAttribute("users", users);
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		return "dash_admin";
 	}
 	
 }

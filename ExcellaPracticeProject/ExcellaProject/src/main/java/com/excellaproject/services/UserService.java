@@ -1,5 +1,6 @@
 package com.excellaproject.services;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -22,19 +23,23 @@ public class UserService {
 		this.userRepository.save(user);
 		return user;
 	}
+
+	public List<User> findAllUsers() {
+		return (List<User>) userRepository.findAll();
+	}
 	
-	public User findById(Long id) {
-		Optional<User> optionalUser = userRepository.findById(id);
-		if(optionalUser.isPresent()) {
-			return optionalUser.get();
-		}
-		else {
-			return null;
-		}
+	public Optional<User> findById(Integer id) {
+		return (Optional<User>) userRepository.findById(id);
 	}
 	
 	public User findByEmail(String email) {
 		return this.userRepository.findByEmail(email);
+	}
+	
+//	<<---------------Update--------------->>
+	
+	public User updateUser(User user) {
+		return userRepository.save(user);
 	}
 	
 }

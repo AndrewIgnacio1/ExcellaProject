@@ -37,6 +37,21 @@
 
 
         <div class="container">
+<<<<<<< HEAD
+            <form action="/process_form_a" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputFirstName4">First Name</label>
+                  <input type="text" class="form-control" id="inputEmail4" name="first_name" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="inputLastName4">Last Name</label>
+                  <input type="text" class="form-control" id="inputEmail4" name="last_name" placeholder="Last Name">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputMiddleInitial4">Middle Initial</label>
+                  <input type="text" class="form-control" id="inputEmail4" name="middle_initial" placeholder="M. I.">
+=======
             <form:form action = "/process_form_a" method = "post" modelAttribute="form_A">
               <div class="form-row">
                 <div class="form-group col-md-5">
@@ -54,10 +69,46 @@
                   <form:label path="middle_initial" for="inputMiddleInitial4">Middle Initial</form:label>
                   <form:errors path="middle_initial" style="color: red;" />
                   <form:input type="text" path="middle_initial" name="middle_initial" class="form-control" id="inputEmail4" placeholder="M.I."/>
+>>>>>>> d0e0f51acea19f1189ea371447ed81c21982f836
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+<<<<<<< HEAD
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputContactNumber4">Contact Number</label>
+                  <input type="text" class="form-control" id="inputEmail4" name="contact_number" placeholder="Contact Number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity" name="city">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control" name="state">
+                    <option selected>Choose...</option>
+                    <option value="DC">DC</option>
+                    <option value="MD">MD</option>
+                    <option value="VA">VA</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip" name="zip_code">
+=======
                   <form:label path="email" for="inputEmail4">Email</form:label>
                   <form:errors path="email" style="color: red;" />
                   <form:input type="email" path="email" name="email" class="form-control" id="inputEmail4" placeholder="Email"/>
@@ -151,6 +202,7 @@
                   <form:label path="zip" for="inputZip">Zip</form:label>
                   <form:errors path="zip" style="color: red;" />
                   <form:input path="zip" type="text" name="zip" class="form-control" id="inputZip"/>
+>>>>>>> d0e0f51acea19f1189ea371447ed81c21982f836
                 </div>
               </div>
               <input type="hidden" id="user" name="user" value="${user.id}">

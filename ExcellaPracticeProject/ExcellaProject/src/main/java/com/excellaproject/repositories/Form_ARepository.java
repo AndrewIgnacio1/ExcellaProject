@@ -8,17 +8,17 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.excellaproject.models.Form_A;
 
-public interface Form_ARepository extends CrudRepository <Form_A, Long> {
+public interface Form_ARepository extends CrudRepository <Form_A, Integer> {
 	List<Form_A> findAll();
 	
-	Optional<Form_A> findByUser_id(long id);
+	Optional<Form_A> findByUser_id(int id);
 	
 	@Query(value="SELECT * from forms_a WHERE user_id = ?1 AND form_level = 0", nativeQuery=true)
-    List<Form_A> findRejectedForms(long id);
+    List<Form_A> findRejectedForms(int id);
 	
 	@Query(value="SELECT * from forms_a WHERE user_id = ?1 AND form_level = 1", nativeQuery=true)
-    List<Form_A> findPendingForms(long id);
+    List<Form_A> findPendingForms(int id);
     
     @Query(value="SELECT * from forms_a WHERE user_id = ?1 AND form_level = 2", nativeQuery=true)
-    List<Form_A> findCompleteForms(long id);
+    List<Form_A> findCompleteForms(int id);
 }

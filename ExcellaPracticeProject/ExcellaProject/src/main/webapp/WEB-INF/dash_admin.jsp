@@ -25,13 +25,11 @@
 
 <body>
     <div class="nav_bar">
-
-        <ul>
-            <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-            <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
-        </ul>
-
-    </div>
+		<ul>
+			<li><a href="/dashboard">Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
     <div class="form_header"><img class="logosmall" src="img/excellalogo.png" alt="logo"></div>
 
     <div class="jumbotron">
@@ -52,9 +50,9 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <c:forEach items="${ users }" var="user">
                 <tr>
-                    <td>John_Doe</td>
+                    <td>${ user.username }</td>
                     <td>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn-forms" data-toggle="modal" data-target="#exampleModalLong1">View Forms</button>
@@ -151,104 +149,7 @@
                     </td>
                 </tr>
                     
-                <tr>
-                    <td>Jane_Doe</td>
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-forms" data-toggle="modal" data-target="#exampleModalLong4">View Forms</button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Incomplete Forms</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul>
-                                        <li><a href="#">Form A</a></li> 
-                                        <li><a href="#">Form B</a></li>
-                                        <li><a href="#">Form C</a></li>
-                                        <li><a href="#">Form D</a></li>
-                                    </ul>    
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-forms" data-toggle="modal" data-target="#exampleModalLong5">View Forms</button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalLong5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Pending Forms</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul>
-                                        <li><a href="#">Form E</a></li> 
-                                        <li><a href="#">Form F</a></li>
-                                        <li><a href="#">Form G</a></li>
-                                        <li><a href="#">Form H</a></li>
-                                    </ul>  
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn-forms" data-toggle="modal" data-target="#exampleModalLong6">View Forms</button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalLong6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Completed Forms</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul>
-                                        <li><a href="#">Form I</a></li> 
-                                        <li><a href="#">Form J</a></li>
-                                        <li><a href="#">Form K</a></li>
-                                        <li><a href="#">Form L</a></li>
-                                    </ul>  
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </td>
-                    
-                    <td>
-                        <button type="button" class="btn-promote">Promote</button>
-                        <button type="button" class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
+			</c:forEach>
         </table>
     </div>
 </body>

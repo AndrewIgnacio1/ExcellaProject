@@ -21,15 +21,15 @@ private final Form_ARepository form_ARepository;
 		return form_ARepository.findAll();
 	}
 	
-	public List<Form_A> formRejected(Long id){
+	public List<Form_A> formRejected(Integer id){
 		return form_ARepository.findRejectedForms(id);
 	}
 	
-	public List<Form_A> formPending(Long id){
+	public List<Form_A> formPending(Integer id){
 		return form_ARepository.findPendingForms(id);
 	}
 	
-	public List<Form_A> formComplete(Long id){
+	public List<Form_A> formComplete(Integer id){
 		return form_ARepository.findCompleteForms(id);
 	}
 	
@@ -37,7 +37,7 @@ private final Form_ARepository form_ARepository;
 		return form_ARepository.save(a);
 	}
 	
-	public Form_A findForm(long id) {
+	public Form_A findForm(int id) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id);
 		if(optionalForm_A.isPresent()) {
 			return optionalForm_A.get();
@@ -47,7 +47,7 @@ private final Form_ARepository form_ARepository;
 		}
 	}
 	
-	public Form_A findUser(long id) {
+	public Form_A findUser(int id) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findByUser_id(id);
 		if(optionalForm_A.isPresent()) {
 			return optionalForm_A.get();
@@ -57,7 +57,7 @@ private final Form_ARepository form_ARepository;
 		}
 	}
 	
-	public Form_A updateForm(long id, int form_level) {
+	public Form_A updateForm(int id, int form_level) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id); 
         if(optionalForm_A.isPresent()) {
        	 Form_A form_A = optionalForm_A.get();
