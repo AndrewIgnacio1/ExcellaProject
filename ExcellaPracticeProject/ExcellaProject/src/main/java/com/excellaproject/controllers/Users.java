@@ -1,6 +1,7 @@
 package com.excellaproject.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -128,6 +129,8 @@ public class Users {
 
 	@RequestMapping("/dashboard_admin")
 	public String dash_admin_page(HttpSession session, Model model) {
+		List<User> users = userService.findAllUsers();
+		model.addAttribute("users", users);
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		return "dash_admin";
