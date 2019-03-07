@@ -21,15 +21,15 @@ public class Form_BService {
 		return form_BRepository.findAll();
 	}
 	
-	public List<Form_B> formRejected(Long id){
+	public List<Form_B> formRejected(Integer id){
 		return form_BRepository.findRejectedForms(id);
 	}
 	
-	public List<Form_B> formPending(Long id){
+	public List<Form_B> formPending(Integer id){
 		return form_BRepository.findPendingForms(id);
 	}
 	
-	public List<Form_B> formComplete(Long id){
+	public List<Form_B> formComplete(Integer id){
 		return form_BRepository.findCompleteForms(id);
 	}
 	
@@ -37,7 +37,7 @@ public class Form_BService {
 		return form_BRepository.save(b);
 	}
 	
-	public Form_B findForm(long id) {
+	public Form_B findForm(int id) {
 		Optional<Form_B> optionalForm_B = form_BRepository.findById(id);
 		if(optionalForm_B.isPresent()) {
 			return optionalForm_B.get();
@@ -47,7 +47,7 @@ public class Form_BService {
 		}
 	}
 	
-	public Form_B findUser(long id) {
+	public Form_B findUser(int id) {
 		Optional<Form_B> optionalForm_B = form_BRepository.findByUser_id(id);
 		if(optionalForm_B.isPresent()) {
 			return optionalForm_B.get();
@@ -57,7 +57,7 @@ public class Form_BService {
 		}
 	}
 	
-	public Form_B updateForm(long id, int form_level) {
+	public Form_B updateForm(int id, int form_level) {
 		Optional<Form_B> optionalForm_B = form_BRepository.findById(id); 
         if(optionalForm_B.isPresent()) {
        	 Form_B form_B = optionalForm_B.get();

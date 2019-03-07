@@ -25,13 +25,11 @@
 
 <body>
     <div class="nav_bar">
-
-        <ul>
-            <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-            <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
-        </ul>
-
-    </div>
+		<ul>
+			<li><a href="/dashboard">Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
     <div class="form_header"><img class="logosmall" src="img/excellalogo.png" alt="logo"></div>
 
     <div class="jumbotron">
