@@ -37,7 +37,7 @@ private final Form_ARepository form_ARepository;
 		return form_ARepository.save(a);
 	}
 	
-	public Form_A findForm(int id) {
+	public Form_A findForm(long id) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id);
 		if(optionalForm_A.isPresent()) {
 			return optionalForm_A.get();
@@ -57,15 +57,23 @@ private final Form_ARepository form_ARepository;
 		}
 	}
 	
-	public Form_A updateForm(int id, int form_level) {
+	public Form_A updateForm_level(long id, int form_level) {
 		Optional<Form_A> optionalForm_A = form_ARepository.findById(id); 
         if(optionalForm_A.isPresent()) {
-       	 Form_A form_A = optionalForm_A.get();
-       	 form_A.setForm_level(form_level);
-            return form_ARepository.save(form_A);
+			Form_A form_A = optionalForm_A.get();
+			form_A.setForm_level(form_level);
+			return form_ARepository.save(form_A);
         } else {
             return null;
         }
+	}
+	
+	public Form_A updateForm_A(Form_A form_A) {
+		return form_ARepository.save(form_A);
+	}
+	
+	public void deleteForm_A(long id) {
+		form_ARepository.deleteById(id);
 	}
 	
 	public void addForm_AToUser(Form_A a, User u) {

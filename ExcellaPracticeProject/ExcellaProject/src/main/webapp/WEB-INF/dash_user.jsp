@@ -35,7 +35,7 @@
         <div class="form_header"><img class="logosmall" src="img/excellalogo.png" alt="logo"></div>
 
         <div class="jumbotron">
-            <h1 class="display-2">Welcome User!</h1>
+            <h1 class="display-2">Welcome ${user.username}!</h1>
             <hr class="my-4">
             <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
         </div>
@@ -80,10 +80,18 @@
         <div class="userdashcol">
             <h1>Approved</h1>
             <ul>
-                <li><a href="#">Form I</a></li> 
-                <li><a href="#">Form J</a></li>
-                <li><a href="#">Form K</a></li>
-                <li><a href="#">Form L</a></li>
+                <c:if test="${form_a.form_level == 2}">
+                    <li>Form A</li> 
+                </c:if>
+                <c:if test="${form_b.form_level == 2}">
+                    <li>Form B</li> 
+                </c:if>
+                <c:if test="${form_c.form_level == 2}">
+                    <li>Form C</li> 
+                </c:if>
+                <c:if test="${form_d.form_level == 2}">
+                    <li>Form D</li> 
+                </c:if>
             </ul>                        
         </div>
 

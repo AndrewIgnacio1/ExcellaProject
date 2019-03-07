@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+
 import com.excellaproject.models.Form_B;
 import com.excellaproject.models.User;
 import com.excellaproject.repositories.Form_BRepository;
@@ -37,7 +38,7 @@ public class Form_BService {
 		return form_BRepository.save(b);
 	}
 	
-	public Form_B findForm(int id) {
+	public Form_B findForm(long id) {
 		Optional<Form_B> optionalForm_B = form_BRepository.findById(id);
 		if(optionalForm_B.isPresent()) {
 			return optionalForm_B.get();
@@ -57,7 +58,7 @@ public class Form_BService {
 		}
 	}
 	
-	public Form_B updateForm(int id, int form_level) {
+	public Form_B updateForm_level(long id, int form_level) {
 		Optional<Form_B> optionalForm_B = form_BRepository.findById(id); 
         if(optionalForm_B.isPresent()) {
        	 Form_B form_B = optionalForm_B.get();
@@ -66,6 +67,14 @@ public class Form_BService {
         } else {
             return null;
         }
+	}
+	
+	public Form_B updateForm_B(Form_B form_B) {
+		return form_BRepository.save(form_B);
+	}
+	
+	public void deleteForm_B(long id) {
+		form_BRepository.deleteById(id);
 	}
 	
 	public void addForm_BToUser(Form_B b, User u) {

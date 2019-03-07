@@ -37,7 +37,7 @@ public class Form_CService {
 		return form_CRepository.save(c);
 	}
 	
-	public Form_C findForm(int id) {
+	public Form_C findForm(long id) {
 		Optional<Form_C> optionalForm_C = form_CRepository.findById(id);
 		if(optionalForm_C.isPresent()) {
 			return optionalForm_C.get();
@@ -57,7 +57,7 @@ public class Form_CService {
 		}
 	}
 	
-	public Form_C updateForm(int id, int form_level) {
+	public Form_C updateForm_level(long id, int form_level) {
 		Optional<Form_C> optionalForm_C = form_CRepository.findById(id); 
         if(optionalForm_C.isPresent()) {
        	 Form_C form_C = optionalForm_C.get();
@@ -66,6 +66,14 @@ public class Form_CService {
         } else {
             return null;
         }
+	}
+	
+	public Form_C updateForm_C(Form_C form_C) {
+		return form_CRepository.save(form_C);
+	}
+	
+	public void deleteForm_C(long id) {
+		form_CRepository.deleteById(id);
 	}
 	
 	public void addForm_CToUser(Form_C c, User u) {

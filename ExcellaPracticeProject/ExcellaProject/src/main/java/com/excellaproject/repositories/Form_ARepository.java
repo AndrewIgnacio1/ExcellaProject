@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.excellaproject.models.Form_A;
 
-public interface Form_ARepository extends CrudRepository <Form_A, Integer> {
+public interface Form_ARepository extends CrudRepository <Form_A, Long> {
 	List<Form_A> findAll();
 	
 	Optional<Form_A> findByUser_id(int id);

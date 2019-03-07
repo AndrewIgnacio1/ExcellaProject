@@ -99,7 +99,7 @@
                   <form:input path="ten" type="text" name="ten" class="form-control" id="inputZip"/>
                 </div>
               </div>
-              <input type="hidden" id="user" name="user" value="${user.id}">
+              <input path="user" type="hidden" id="user_id" name="user_id" value="${user.id}">
               <input type="submit" class="btn btn-primary" value="Submit"/>
             </form:form>
         </div>

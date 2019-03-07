@@ -28,8 +28,14 @@ public class UserService {
 		return (List<User>) userRepository.findAll();
 	}
 	
-	public Optional<User> findById(Integer id) {
-		return (Optional<User>) userRepository.findById(id);
+	public User findById(Integer id) {
+		Optional<User> optionalUser = userRepository.findById(id);
+		if(optionalUser.isPresent()) {
+			return optionalUser.get();
+		}
+		else {
+			return null;
+		}
 	}
 	
 	public User findByEmail(String email) {
@@ -41,5 +47,16 @@ public class UserService {
 	public User updateUser(User user) {
 		return userRepository.save(user);
 	}
+	
+	public User promoteUser(Integer id, Integer user_level) {
+    	Optional<User> optionalUser = userRepository.findById(id); 
+         if(optionalUser.isPresent()) {
+        	 User user = optionalUser.get();
+        	 user.setUser_level(user_level);
+             return userRepository.save(user);
+         } else {
+             return null;
+         }
+    }
 	
 }

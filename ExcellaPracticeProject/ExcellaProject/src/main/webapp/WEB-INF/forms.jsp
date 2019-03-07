@@ -5,150 +5,238 @@
 
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Forms</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand|Roboto+Condensed|Slabo+27px|Source+Sans+Pro" rel="stylesheet">
+        
+
+    <title>Excella | Pending Forms</title>
 </head>
+
 <body>
+    <div class="nav_bar">
+        <ul>
+            <li><a href="/dashboard_admin">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="form_header"><img class="logosmall" src="../../img/excellalogo.png" alt="logo"></div>
     <div class="container">
-        <h2>John Doe's Pending Reports</h2>
+        <h2>${user.username}'s pending reports</h2>
         <ul class="list-group">
-            <li class="list-group-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form1">Form A</button>
+            <c:if test="${form_a.form_level == 1}">
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form1">Form A</button>
 
-                <div class="modal fade" id="form1" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal fade" id="form1" role="dialog">
+                        <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Form A</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h1>Form</h1>
-                                <p>Lorem Ipsum</p>
-                                <h1>Example Text Area</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Example Text Area</h1>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                                <h1>Example Text Area</h1>
-                                <p>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Radio</h1>
-                                <p>First radio</p>
-                                <h1>Checkbox</h1>
-                                <p>Example checkbox</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Form A</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>First Name</h3>
+                                    <p><c:out value="${form_a.first_name}"/></p>
+                                    <h3>Last Name</h3>
+                                    <p><c:out value="${form_a.last_name}"/></p>
+                                    <h3>Middle Initial</h3>
+                                    <p><c:out value="${form_a.middle_initial}"/></p>
+                                    <h3>Email</h3>
+                                    <p><c:out value="${form_a.email}"/></p>
+                                    <h3>Address</h3>
+                                    <p><c:out value="${form_a.address}"/></p>
+                                    <h3>Address 2</h3>
+                                    <p><c:out value="${form_a.address2}"/></p>
+                                    <h3>City</h3>
+                                    <p><c:out value="${form_a.city}"/></p>
+                                    <h3>State</h3>
+                                    <p><c:out value="${form_a.state}"/></p>
+                                    <h3>zip</h3>
+                                    <p><c:out value="${form_a.zip}"/></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form:form action="../${form_a.id}/accept/a" method="put" style="display:inline-block">
+                                        <input type="hidden" id="form_level" name="form_level" value="2">
+                                        <input type="submit" class="btn btn-success" value="Accept"/>
+                                    </form:form>
+                                    <form action="../${form_a.id}/reject/a" method="post">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="submit" class="btn btn-danger" value="Reject">
+                                    </form>     
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form2">Form B</button>
+                </li>
+            </c:if>
+            <c:if test="${form_b.form_level == 1}">
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form2">Form B</button>
 
-                <div class="modal fade" id="form2" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal fade" id="form2" role="dialog">
+                        <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Form B</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h1>Form</h1>
-                                <p>Lorem Ipsum</p>
-                                <h1>Example Text Area</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Example Text Area</h1>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                                <h1>Example Text Area</h1>
-                                <p>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Radio</h1>
-                                <p>First radio</p>
-                                <h1>Checkbox</h1>
-                                <p>Example checkbox</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Form B</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                        <h3>One</h3>
+                                        <p><c:out value="${form_b.one}"/></p>
+                                        <h3>Two</h3>
+                                        <p><c:out value="${form_b.two}"/></p>
+                                        <h3>Three</h3>
+                                        <p><c:out value="${form_b.three}"/></p>
+                                        <h3>Four</h3>
+                                        <p><c:out value="${form_b.four}"/></p>
+                                        <h3>Five</h3>
+                                        <p><c:out value="${form_b.five}"/></p>
+                                        <h3>Six</h3>
+                                        <p><c:out value="${form_b.six}"/></p>
+                                        <h3>Seven</h3>
+                                        <p><c:out value="${form_b.seven}"/></p>
+                                        <h3>Eight</h3>
+                                        <p><c:out value="${form_b.eight}"/></p>
+                                        <h3>Nine</h3>
+                                        <p><c:out value="${form_b.nine}"/></p>
+                                        <h3>Ten</h3>
+                                        <p><c:out value="${form_b.ten}"/></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form:form action="../${form_b.id}/accept/b" method="put" style="display:inline-block">
+                                        <input type="hidden" id="form_level" name="form_level" value="2">
+                                        <input type="submit" class="btn btn-success" value="Accept"/>
+                                    </form:form>
+                                    <form action="../${form_b.id}/reject/b" method="post">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="submit" class="btn btn-danger" value="Reject">
+                                    </form>     
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form3">Form C</button>
+                </li>
+            </c:if>
+            <c:if test="${form_c.form_level == 1}">
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form3">Form C</button>
 
-                <div class="modal fade" id="form3" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal fade" id="form3" role="dialog">
+                        <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Form C</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h1>Form</h1>
-                                <p>Lorem Ipsum</p>
-                                <h1>Example Text Area</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Example Text Area</h1>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                                <h1>Example Text Area</h1>
-                                <p>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Radio</h1>
-                                <p>First radio</p>
-                                <h1>Checkbox</h1>
-                                <p>Example checkbox</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Form C</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                </div>
+                                <div class="modal-body">
+                                        <h3>One</h3>
+                                        <p><c:out value="${form_c.one}"/></p>
+                                        <h3>Two</h3>
+                                        <p><c:out value="${form_c.two}"/></p>
+                                        <h3>Three</h3>
+                                        <p><c:out value="${form_c.three}"/></p>
+                                        <h3>Four</h3>
+                                        <p><c:out value="${form_c.four}"/></p>
+                                        <h3>Five</h3>
+                                        <p><c:out value="${form_c.five}"/></p>
+                                        <h3>Six</h3>
+                                        <p><c:out value="${form_c.six}"/></p>
+                                        <h3>Seven</h3>
+                                        <p><c:out value="${form_c.seven}"/></p>
+                                        <h3>Eight</h3>
+                                        <p><c:out value="${form_c.eight}"/></p>
+                                        <h3>Nine</h3>
+                                        <p><c:out value="${form_c.nine}"/></p>
+                                        <h3>Ten</h3>
+                                        <p><c:out value="${form_c.ten}"/></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form:form action="../${form_c.id}/accept/c" method="put" style="display:inline-block">
+                                        <input type="hidden" id="form_level" name="form_level" value="2">
+                                        <input type="submit" class="btn btn-success" value="Accept"/>
+                                    </form:form>
+                                    <form action="../${form_c.id}/reject/c" method="post">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="submit" class="btn btn-danger" value="Reject">
+                                    </form> 
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form4">Form D</button>
+                </li>
+            </c:if>
+            <c:if test="${form_d.form_level == 1}">
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form4">Form D</button>
 
-                <div class="modal fade" id="form4" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal fade" id="form4" role="dialog">
+                        <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Form D</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h1>Form</h1>
-                                <p>Lorem Ipsum</p>
-                                <h1>Example Text Area</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Example Text Area</h1>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
-                                <h1>Example Text Area</h1>
-                                <p>eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <h1>Radio</h1>
-                                <p>First radio</p>
-                                <h1>Checkbox</h1>
-                                <p>Example checkbox</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Form D</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>One</h3>
+                                    <p><c:out value="${form_d.one}"/></p>
+                                    <h3>Two</h3>
+                                    <p><c:out value="${form_d.two}"/></p>
+                                    <h3>Three</h3>
+                                    <p><c:out value="${form_d.three}"/></p>
+                                    <h3>Four</h3>
+                                    <p><c:out value="${form_d.four}"/></p>
+                                    <h3>Five</h3>
+                                    <p><c:out value="${form_d.five}"/></p>
+                                    <h3>Six</h3>
+                                    <p><c:out value="${form_d.six}"/></p>
+                                    <h3>Seven</h3>
+                                    <p><c:out value="${form_d.seven}"/></p>
+                                    <h3>Eight</h3>
+                                    <p><c:out value="${form_d.eight}"/></p>
+                                    <h3>Nine</h3>
+                                    <p><c:out value="${form_d.nine}"/></p>
+                                    <h3>Ten</h3>
+                                    <p><c:out value="${form_d.ten}"/></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form:form action="../${form_d.id}/accept/d" method="put" style="display:inline-block">
+                                        <input type="hidden" id="form_level" name="form_level" value="2">
+                                        <input type="submit" class="btn btn-success" value="Accept"/>
+                                    </form:form>
+                                    <form action="../${form_d.id}/reject/d" method="post">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="submit" class="btn btn-danger" value="Reject">
+                                    </form> 
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </c:if>
         </ul>
     </div>
 </body>

@@ -78,6 +78,7 @@
 
 					<input class="submit" type="submit" value="be an Excellant!">
 					<p class="to_register">already an Excellant? <a href="/">click here</a></p>
+					
 				</form>
 			</div>
 		</div>

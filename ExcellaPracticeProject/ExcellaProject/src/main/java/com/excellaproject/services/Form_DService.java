@@ -37,7 +37,7 @@ public class Form_DService {
 		return form_DRepository.save(d);
 	}
 	
-	public Form_D findForm(int id) {
+	public Form_D findForm(long id) {
 		Optional<Form_D> optionalForm_D = form_DRepository.findById(id);
 		if(optionalForm_D.isPresent()) {
 			return optionalForm_D.get();
@@ -57,7 +57,7 @@ public class Form_DService {
 		}
 	}
 	
-	public Form_D updateForm(int id, int form_level) {
+	public Form_D updateForm_level(long id, int form_level) {
 		Optional<Form_D> optionalForm_D = form_DRepository.findById(id); 
         if(optionalForm_D.isPresent()) {
        	 Form_D form_D = optionalForm_D.get();
@@ -66,6 +66,14 @@ public class Form_DService {
         } else {
             return null;
         }
+	}
+	
+	public Form_D updateForm_D(Form_D form_D) {
+		return form_DRepository.save(form_D);
+	}
+	
+	public void deleteForm_D(long id) {
+		form_DRepository.deleteById(id);
 	}
 	
 	public void addForm_DToUser(Form_D d, User u) {

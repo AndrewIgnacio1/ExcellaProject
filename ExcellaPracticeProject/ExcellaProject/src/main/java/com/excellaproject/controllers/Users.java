@@ -3,13 +3,19 @@ package com.excellaproject.controllers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -116,6 +122,9 @@ public class Users {
 	public String dash_user_page(HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+		if (user == null) {
+			return "redirect:/";
+		}
 		Form_A form_a = (Form_A) form_AService.findUser(user.getId());
 		Form_B form_b = (Form_B) form_BService.findUser(user.getId());
 		Form_C form_c = (Form_C) form_CService.findUser(user.getId());
@@ -133,7 +142,56 @@ public class Users {
 		model.addAttribute("users", users);
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+		if (user == null) {
+			return "redirect:/";
+		}
 		return "dash_admin";
+	}
+	
+	@RequestMapping(value="/{id}/promote", method=RequestMethod.PUT)
+	public String promote(@Valid @ModelAttribute("users") User user, BindingResult result) {
+		userService.promoteUser(user.getId(), user.getUser_level());
+		return "redirect:/dashboard_admin";
+	}
+	
+	@RequestMapping("/forms/{id}/pending")
+	public String forms_page(HttpSession session, Model model, @PathVariable("id") Integer id) {
+		User logged_user = (User) session.getAttribute("user");
+		User user =  userService.findById(id);
+		model.addAttribute("logged_user", logged_user);
+		if (logged_user == null || logged_user.getUser_level() != 1) {
+			return "redirect:/";
+		}
+		model.addAttribute("user", user);
+		Form_A form_a = (Form_A) form_AService.findUser(user.getId());
+		Form_B form_b = (Form_B) form_BService.findUser(user.getId());
+		Form_C form_c = (Form_C) form_CService.findUser(user.getId());
+		Form_D form_d = (Form_D) form_DService.findUser(user.getId());
+		model.addAttribute("form_a", form_a);
+		model.addAttribute("form_b", form_b);
+		model.addAttribute("form_c", form_c);
+		model.addAttribute("form_d", form_d);
+		return "forms";
+	}
+	
+	@RequestMapping("/forms/{id}/completed")
+	public String completed_forms_page(HttpSession session, Model model, @PathVariable("id") Integer id) {
+		User logged_user = (User) session.getAttribute("user");
+		User user =  userService.findById(id);
+		model.addAttribute("logged_user", logged_user);
+		if (logged_user == null || logged_user.getUser_level() != 1) {
+			return "redirect:/";
+		}
+		model.addAttribute("user", user);
+		Form_A form_a = (Form_A) form_AService.findUser(user.getId());
+		Form_B form_b = (Form_B) form_BService.findUser(user.getId());
+		Form_C form_c = (Form_C) form_CService.findUser(user.getId());
+		Form_D form_d = (Form_D) form_DService.findUser(user.getId());
+		model.addAttribute("form_a", form_a);
+		model.addAttribute("form_b", form_b);
+		model.addAttribute("form_c", form_c);
+		model.addAttribute("form_d", form_d);
+		return "forms_completed";
 	}
 	
 }
