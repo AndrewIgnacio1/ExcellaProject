@@ -37,54 +37,56 @@
 
 
         <div class="container">
-            <form>
+            <form action="/process_form_a" method="post">
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="inputFirstName4">First Name</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="First Name">
+                  <input type="text" class="form-control" id="inputEmail4" name="first_name" placeholder="First Name">
                 </div>
                 <div class="form-group col-md-5">
                   <label for="inputLastName4">Last Name</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
+                  <input type="text" class="form-control" id="inputEmail4" name="last_name" placeholder="Last Name">
                 </div>
                 <div class="form-group col-md-2">
                   <label for="inputMiddleInitial4">Middle Initial</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="M. I.">
+                  <input type="text" class="form-control" id="inputEmail4" name="middle_initial" placeholder="M. I.">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputContactNumber4">Contact Number</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Contact Number">
+                  <input type="text" class="form-control" id="inputEmail4" name="contact_number" placeholder="Contact Number">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St">
               </div>
               <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity">
+                  <input type="text" class="form-control" id="inputCity" name="city">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
+                  <select id="inputState" class="form-control" name="state">
                     <option selected>Choose...</option>
-                    <option>...</option>
+                    <option value="DC">DC</option>
+                    <option value="MD">MD</option>
+                    <option value="VA">VA</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
                   <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                  <input type="text" class="form-control" id="inputZip" name="zip_code">
                 </div>
               </div>
               <div class="form-group">

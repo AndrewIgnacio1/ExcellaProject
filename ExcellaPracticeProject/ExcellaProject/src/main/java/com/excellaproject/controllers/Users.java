@@ -52,6 +52,10 @@ public class Users {
 		if ((boolean) response.get("valid")) {
 			User user = (User) response.get("user");
 			session.setAttribute("user", user);
+			System.out.println(user);
+			if (user.getUser_level() == 1) {
+				return "redirect:/dashboard_admin";
+			}
 			return "redirect:/dashboard";
 		}
 		else {
@@ -66,9 +70,23 @@ public class Users {
 		
 		if ((boolean) response.get("valid")) {
 			User user = this.userService.createUser(body);
+			System.out.println(user);
 			session.setAttribute("user", user);
 			System.out.println("success in registration");
-			return "redirect:/dashboard";
+
+			if (userService.findAllUsers().size() == 1) {
+				user.setUser_level(1);
+				userService.updateUser(user);
+				System.out.println("admin here");
+				return "redirect:/dashboard_admin";
+			}
+			
+			else {
+				user.setUser_level(9);
+				userService.updateUser(user);
+				System.out.println("regular user here");
+				return "redirect:/dashboard";
+			}
 		}
 		else {
 			flash.addFlashAttribute("errors", response);
@@ -82,6 +100,13 @@ public class Users {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		return "dash_user";
+	}
+
+	@RequestMapping("/dashboard_admin")
+	public String dash_admin_page(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		return "dash_admin";
 	}
 	
 }
